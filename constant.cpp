@@ -15,6 +15,5 @@ int main() {
     default:
         cout << "no match found." <<endl;
         return 0;
-
     }
 }
