@@ -1,16 +1,33 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int n = 5;
-    int factorial = 1;
 
-    while (n > 0) {
-        factorial *= n;  //Keep finding factorial with n and decrement n 
-        n--;
+void countFreq(int arr[], int n) {
+
+    vector<bool> visited(n, false);
+
+    for (int i = 0; i < n; i++) {
+
+        if (visited[i] == true)
+            continue;
+
+        int count = 1;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
+                visited[j] = true; // Mark arr[j] as processed
+                count++;
+            }
+        }
+
+        cout << arr[i] << " " << count << endl;
     }
+}
 
-    cout << "Factorial of 5 is: " << factorial << endl;  //Print the factorial
+int main() {
+    // Input array
+    int arr[] = {10, 5, 10, 15, 10, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
+    countFreq(arr, n);
     return 0;
 }
