@@ -1,19 +1,15 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
 int main() {
-    int t;
-    cin>>t;
-    while(t--) {
-        int x,y;
-        cin>>x>>y;
-        if(x%6==0){
-            cout<<(x/6)*x<<endl;
-        }else{
-            cout<<((x/6)+1)*x<<endl;
-        }
-    }
-    return 0;
-
+	int T,X;
+	cin>>T;
+	while(T--)
+	{
+	    cin>>X;
+	    if((X+3)<=10)
+	    cout<<"YES"<<endl;
+	    else cout<<"NO"<<endl;
+	}
+	return 0;
 }
