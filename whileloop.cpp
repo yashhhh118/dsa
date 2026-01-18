@@ -2,14 +2,12 @@
 using namespace std;
 
 int main() {
-	int T,X;
+	int T,X,Y;
 	cin>>T;
 	while(T--)
 	{
-	    cin>>X;
-	    if((X+3)<=10)
-	    cout<<"YES"<<endl;
-	    else cout<<"NO"<<endl;
+	    cin>>X>>Y;
+	    cout<<4*X+Y<<endl;
 	}
 	return 0;
 }
