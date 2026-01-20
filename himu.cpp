@@ -1,19 +1,22 @@
 #include <iostream>
+
 using namespace std;
 
 int main() {
-    int a, b, c;
+    int t;
+    cin>>t;
+    while(t--){
+    
+    int x, y, z;
+    cin >> x>> y>> z;
 
-    cout << "Enter three numbers: ";
-    cin >> a >> b >> c;
+    int totalStudents = x * y;
 
-    if (a >= b && a >= c) {
-        cout << "Largest number is: " << a << endl;
-    } else if (b >= a && b >= c) {
-        cout << "Largest number is: " << b << endl;
+    if (z > totalStudents / 2) {
+        cout << "YES"<<endl;
     } else {
-        cout << "Largest number is: " << c << endl;
+        cout << "NO"<<endl;
     }
-
+    }
     return 0;
 }
