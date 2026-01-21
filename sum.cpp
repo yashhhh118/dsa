@@ -2,16 +2,12 @@
 using namespace std;
 
 int main() {
-    int num;
+    int N;
+    cin >> N;
 
-    cout << "Enter a number: ";
-    cin >> num;
+    int sum = N * (N + 1) / 2;
 
-    if (num % 2 == 0) {
-        cout << "The number is Even." << endl;
-    } else {
-        cout << "The number is Odd." << endl;
-    }
+    cout << sum;
 
     return 0;
 }
