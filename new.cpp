@@ -2,18 +2,16 @@
 using namespace std;
 
 int main() {
-    int num, reverse = 0;
+    int temp;
+    cin >> temp;
 
-    cout << "Enter a number: ";
-    cin >> num;
-
-    while (num != 0) {
-        int digit = num % 10;
-        reverse = reverse * 10 + digit;
-        num = num / 10;
+    if (temp < 0) {
+        cout << "FREEZING";
+    } else if (temp <= 30) {
+        cout << "NORMAL";
+    } else {
+        cout << "HOT";
     }
-
-    cout << "Reversed number: " << reverse << endl;
 
     return 0;
 }

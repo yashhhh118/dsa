@@ -1,22 +1,16 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int main() {
-    int t;
-    cin>>t;
-    while(t--){
-    
-        int x, y, z;
-        cin >> x>> y>> z;
+    string password;
+    cin >> password;
 
-        int totalStudents = x * y;
-
-        if (z > totalStudents / 2) {
-            cout << "YES"<<endl;
-        } else {
-        cout << "NO"<<endl;
-        }
+    if (password.length() >= 8) {
+        cout << "VALID";
+    } else {
+        cout << "INVALID";
     }
+
     return 0;
 }
