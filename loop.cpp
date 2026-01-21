@@ -2,9 +2,22 @@
 using namespace std;
 
 int main() {
-    for (int i = 1; i <= 25; i += 5) {
-        cout << "i = " << i << endl;
+    int num, original, reversed = 0;
+    cin >> num;
+
+    original = num;
+
+    while (num > 0) {
+        int digit = num % 10;
+        reversed = reversed * 10 + digit;
+        num = num / 10;
     }
+
+    if (original == reversed) {
+        cout << "YES";
+    } else {
+        cout << "NO";
+    }
+
     return 0;
 }
-
