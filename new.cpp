@@ -2,16 +2,19 @@
 using namespace std;
 
 int main() {
-    int temp;
-    cin >> temp;
+    int num, count = 0;
+    cin >> num;
 
-    if (temp < 0) {
-        cout << "FREEZING";
-    } else if (temp <= 30) {
-        cout << "NORMAL";
+    if (num == 0) {
+        count = 1;
     } else {
-        cout << "HOT";
+        while (num != 0) {
+            count++;
+            num = num / 10;
+        }
     }
+
+    cout << count;
 
     return 0;
 }
