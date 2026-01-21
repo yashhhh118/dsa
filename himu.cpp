@@ -1,15 +1,16 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
-    string password;
-    cin >> password;
+    int temp;
+    cin >> temp;
 
-    if (password.length() >= 8) {
-        cout << "VALID";
+    if (temp < 0) {
+        cout << "FREEZING";
+    } else if (temp <= 30) {
+        cout << "NORMAL";
     } else {
-        cout << "INVALID";
+        cout << "HOT";
     }
 
     return 0;
