@@ -2,19 +2,28 @@
 using namespace std;
 
 int main() {
-    int num, count = 0;
+    int num;
     cin >> num;
 
-    if (num == 0) {
-        count = 1;
-    } else {
-        while (num != 0) {
-            count++;
-            num = num / 10;
+    if (num <= 1) {
+        cout << "NO";
+        return 0;
+    }
+
+    bool isPrime = true;
+
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            isPrime = false;
+            break;
         }
     }
 
-    cout << count;
+    if (isPrime) {
+        cout << "YES";
+    } else {
+        cout << "NO";
+    }
 
     return 0;
 }
