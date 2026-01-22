@@ -1,33 +1,23 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-
-void countFreq(int arr[], int n) {
-
-    vector<bool> visited(n, false);
-
-    for (int i = 0; i < n; i++) {
-
-        if (visited[i] == true)
-            continue;
-
-        int count = 1;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] == arr[j]) {
-                visited[j] = true; // Mark arr[j] as processed
-                count++;
-            }
-        }
-
-        cout << arr[i] << " " << count << endl;
-    }
-}
-
 int main() {
-    // Input array
-    int arr[] = {10, 5, 10, 15, 10, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    string s;
+    cin >> s;
 
-    countFreq(arr, n);
+    int count = 0;
+
+    for (char c : s) {
+        if (c == 'a' || c == 'e' || c == 'i' || 
+            c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || 
+            c == 'O' || c == 'U') {
+            count++;
+        }
+    }
+
+    cout << count;
+
     return 0;
 }
