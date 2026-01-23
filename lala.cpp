@@ -2,14 +2,15 @@
 using namespace std;
 
 int main() {
-	// your code goes here
-	int t;
-	cin>>t;
-	while(t--){
-	    int x,y,z;
-	    cin >> x >> y >> z;
-	    int students = x*y;
-	    z > students/2 ? cout<<"YES" <<endl : cout <<"NO"<<endl;
-	}
-	return 0;
+    int num, sum = 0;
+    cin >> num;
+
+    while (num != 0) {
+        sum += num % 10;
+        num = num / 10;
+    }
+
+    cout << sum;
+
+    return 0;
 }
