@@ -2,15 +2,13 @@
 using namespace std;
 
 int main() {
-    char signal;
-    cin >> signal;
+    int year;
+    cin >> year;
 
-    if (signal == 'R') {
-        cout << "STOP";
-    } else if (signal == 'Y') {
-        cout << "READY";
-    } else if (signal == 'G') {
-        cout << "GO";
+    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+        cout << "LEAP YEAR";
+    } else {
+        cout << "NOT LEAP YEAR";
     }
 
     return 0;
