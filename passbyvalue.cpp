@@ -1,13 +1,16 @@
 #include <iostream>
 using namespace std;
 
-void modify(int &a) {
-    a = a + 10;
-}
-
 int main() {
-    int x = 5;
-    modify(x);
-    cout << x << endl; // Output: 15
+    int n;
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
