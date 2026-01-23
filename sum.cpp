@@ -1,13 +1,14 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    int N;
-    cin >> N;
+    string s;
+    cin >> s;
 
-    int sum = N * (N + 1) / 2;
-
-    cout << sum;
+    for (int i = s.length() - 1; i >= 0; i--) {
+        cout << s[i];
+    }
 
     return 0;
 }
