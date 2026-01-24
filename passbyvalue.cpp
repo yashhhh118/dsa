@@ -1,16 +1,17 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    int X;
+    double Y;
+    cin >> X >> Y;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= i; j++) {
-            cout << "* ";
-        }
-        cout << endl;
+    if (X % 5 == 0 && (X + 0.50) <= Y) {
+        Y = Y - (X + 0.50);
     }
+
+    cout << fixed << setprecision(2) << Y;
 
     return 0;
 }
