@@ -1,16 +1,14 @@
 #include <iostream>
 using namespace std;
-
 int main() {
-    int year;
-    cin >> year;
-    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
-        cout << "leap year";
-    } else {
-        cout << "not leap year";
+    int num,sum = 0;
+    cin >> num;
+    while (num != 0) {
+        sum += num % 10;
+        num = num / 10;
+        cout << sum;
 
     }
     return 0;
-
 }
 
