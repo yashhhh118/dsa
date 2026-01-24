@@ -1,14 +1,16 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
-    string s;
-    cin >> s;
+    int year;
+    cin >> year;
+    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+        cout << "leap year";
+    } else {
+        cout << "not leap year";
 
-    for (int i = s.length() - 1; i >= 0; i--) {
-        cout << s[i];
     }
-
     return 0;
+
 }
+
