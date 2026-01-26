@@ -1,16 +1,25 @@
 #include <iostream>
 using namespace std;
-int main() {
 
-    int start,end;
-    cin>>start>>end;
-    for(int i=start;i<=end;i++)
-    {
-        if(i%2==0)
-        {
-            cout<<i<<endl;
-        
+int main() {
+    int n;
+    cin >> n;
+
+    int arr[1000];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int maxRight = arr[n - 1];
+
+    cout << maxRight << " ";  // Last element is always leader
+
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] > maxRight) {
+            maxRight = arr[i];
+            cout << maxRight << " ";
         }
     }
+
     return 0;
 }
