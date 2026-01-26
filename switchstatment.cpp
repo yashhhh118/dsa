@@ -6,20 +6,30 @@ int main() {
     cin >> n;
 
     int arr[1000];
-
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-    int maxElement = arr[0];
+    int key;
+    cin >> key;
 
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > maxElement) {
-            maxElement = arr[i];
+    int left = 0, right = n - 1;
+    int index = -1;
+
+    while (left <= right) {
+        int mid = (left + right) / 2;
+
+        if (arr[mid] == key) {
+            index = mid;
+            break;
+        } else if (arr[mid] < key) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
         }
     }
 
-    cout << maxElement;
+    cout << index;
 
     return 0;
 }
