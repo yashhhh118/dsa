@@ -1,14 +1,17 @@
 #include <iostream>
 using namespace std;
-int main() {
-    int num,sum = 0;
-    cin >> num;
-    while (num != 0) {
-        sum += num % 10;
-        num = num / 10;
-        cout << sum;
 
+int main() {
+    int a, b;
+    cin >> a >> b;
+
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+
+    cout << a;
+
     return 0;
 }
-
