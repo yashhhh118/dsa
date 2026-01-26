@@ -2,21 +2,32 @@
 using namespace std;
 
 int main() {
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
 
-    int count = 0;
+    int arr[1000];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
-    for (char c : s) {
-        if (c == 'a' , c == 'e' , c == 'i' , 
-            c == 'o' , c == 'u' ,
-            c == 'A' , c == 'E', c == 'I' , 
-            c == 'O' , c == 'U') {
-            count++;
+    int index = 0;  // Position to place next non-zero
+
+    // Move non-zero elements forward
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != 0) {
+            arr[index++] = arr[i];
         }
     }
 
-    cout << count;
+    // Fill remaining positions with zeros
+    while (index < n) {
+        arr[index++] = 0;
+    }
+
+    // Print result
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }
