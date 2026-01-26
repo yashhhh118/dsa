@@ -1,17 +1,33 @@
-#include<iostream>
+#include <iostream>
+using namespace std;
 
- using namespace std;
- int main() {
-    int age;
- 
-    cout << "enter your age: ";
-    cin >> age;
+int main() {
+    int n, k;
+    cin >> n >> k;
 
-    if (age >= 18) {
-        cout << "you are an adult." << endl;
-    } else {
-        cout << "you are not an adult." << endl;
+    int arr[1000];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
+
+    int windowSum = 0;
+
+    // First window
+    for (int i = 0; i < k; i++) {
+        windowSum += arr[i];
+    }
+
+    int maxSum = windowSum;
+
+    // Slide the window
+    for (int i = k; i < n; i++) {
+        windowSum += arr[i] - arr[i - k];
+        if (windowSum > maxSum) {
+            maxSum = windowSum;
+        }
+    }
+
+    cout << maxSum;
+
     return 0;
 }
- 
