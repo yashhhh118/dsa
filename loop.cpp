@@ -1,34 +1,26 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
 
-    int arr[1000], prefix[1000];
+    int freq[256] = {0};
 
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+    // Count frequency
+    for (char c : s) {
+        freq[c]++;
     }
 
-    // Build prefix sum array
-    prefix[0] = arr[0];
-    for (int i = 1; i < n; i++) {
-        prefix[i] = prefix[i - 1] + arr[i];
+    // Find first non-repeating
+    for (char c : s) {
+        if (freq[c] == 1) {
+            cout << c;
+            return 0;
+        }
     }
 
-    int q;
-    cin >> q;
-
-    while (q--) {
-        int l, r;
-        cin >> l >> r;
-
-        if (l == 0)
-            cout << prefix[r] << endl;
-        else
-            cout << prefix[r] - prefix[l - 1] << endl;
-    }
-
+    cout << -1;
     return 0;
 }
