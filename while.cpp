@@ -1,32 +1,34 @@
 #include <iostream>
+#include <stack>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
 
-    int arr[1000];
+    int arr[1000], result[1000];
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-    int index = 0;  // Position to place next non-zero
+    stack<int> st;  // will store indices
 
-    // Move non-zero elements forward
-    for (int i = 0; i < n; i++) {
-        if (arr[i] != 0) {
-            arr[index++] = arr[i];
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && arr[st.top()] <= arr[i]) {
+            st.pop();
         }
+
+        if (st.empty()) {
+            result[i] = -1;
+        } else {
+            result[i] = arr[st.top()];
+        }
+
+        st.push(i);
     }
 
-    // Fill remaining positions with zeros
-    while (index < n) {
-        arr[index++] = 0;
-    }
-
-    // Print result
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+        cout << result[i] << " ";
     }
 
     return 0;
