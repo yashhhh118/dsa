@@ -1,34 +1,30 @@
 #include <iostream>
-#include <stack>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
 
-    int arr[1000], result[1000];
+    int arr[1000];
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-    stack<int> st;  // will store indices
+    int left = 0, right = n - 1;
 
-    for (int i = n - 1; i >= 0; i--) {
-        while (!st.empty() && arr[st.top()] <= arr[i]) {
-            st.pop();
-        }
+    while (left < right) {
+        // swap
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
 
-        if (st.empty()) {
-            result[i] = -1;
-        } else {
-            result[i] = arr[st.top()];
-        }
-
-        st.push(i);
+        left++;
+        right--;
     }
 
+    // Print reversed array
     for (int i = 0; i < n; i++) {
-        cout << result[i] << " ";
+        cout << arr[i] << " ";
     }
 
     return 0;
