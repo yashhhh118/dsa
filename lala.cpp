@@ -1,36 +1,32 @@
 #include <iostream>
-#include <algorithm>
+#include <climits>
 using namespace std;
 
 int main() {
-    int n, k;
-    cin >> n >> k;
+    int n;
+    cin >> n;
 
     int arr[1000];
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-    sort(arr, arr + n);
+    int currentSum = 0;
+    int maxSum = INT_MIN;
 
-    int left = 0, right = n - 1;
-    bool found = false;
+    for (int i = 0; i < n; i++) {
+        currentSum += arr[i];
 
-    while (left < right) {
-        int sum = arr[left] + arr[right];
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+        }
 
-        if (sum == k) {
-            found = true;
-            break;
-        } else if (sum < k) {
-            left++;
-        } else {
-            right--;
+        if (currentSum < 0) {
+            currentSum = 0;
         }
     }
 
-    if (found) cout << "YES";
-    else cout << "NO";
+    cout << maxSum;
 
     return 0;
 }
