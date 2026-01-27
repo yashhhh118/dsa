@@ -1,16 +1,36 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main() {
-    int num, sum = 0;
-    cin >> num;
+    int n, k;
+    cin >> n >> k;
 
-    while (num != 0) {
-        sum += num % 10;
-        num = num / 10;
+    int arr[1000];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
 
-    cout << sum;
+    sort(arr, arr + n);
+
+    int left = 0, right = n - 1;
+    bool found = false;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+
+        if (sum == k) {
+            found = true;
+            break;
+        } else if (sum < k) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    if (found) cout << "YES";
+    else cout << "NO";
 
     return 0;
 }
